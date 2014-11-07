@@ -1,0 +1,25 @@
+{
+  "name": "Twilio Client Server",
+  "description": "A simple Python server to distribute capability tokens and route calls for your mobile app",
+  "repository": "https://github.com/twilio/twilio-client-server",
+  "logo": "https://static1.twilio.com/packages/company/img/logos_icon_round.png",
+  "keywords": [
+    "twilio",
+    "client",
+    "mobile"
+  ],
+  "env": {
+    "TWILIO_ACCOUNT_SID": {
+      "description": "Your Twilio account id",
+      "required": true
+    },
+    "TWILIO_AUTH_TOKEN": {
+      "description": "Your Twilio authentication token",
+      "required": true
+    },
+    "TWILIO_APP_SID": {
+      "description": "Your Twilio application sid that points to this server",
+      "required": true
+    }
+  }
+}
