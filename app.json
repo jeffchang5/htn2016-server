@@ -20,6 +20,10 @@
     "TWILIO_APP_SID": {
       "description": "Your Twilio application sid that points to this server",
       "required": true
+    },
+    "CALLER_ID": {
+      "description": "Phone number verified with your Twilio Account",
+      "required": true
     }
   }
 }
