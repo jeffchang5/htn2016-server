@@ -9,15 +9,15 @@
     "mobile"
   ],
   "env": {
-    "TWILIO_ACCOUNT_SID": {
+    "ACCOUNT_SID": {
       "description": "Your Twilio account id",
       "required": true
     },
-    "TWILIO_AUTH_TOKEN": {
+    "AUTH_TOKEN": {
       "description": "Your Twilio authentication token",
       "required": true
     },
-    "TWILIO_APP_SID": {
+    "APP_SID": {
       "description": "Your Twilio application sid that points to this server",
       "required": true
     },
