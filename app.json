@@ -1,7 +1,7 @@
 {
-  "name": "Twilio Client Server",
+  "name": "Twilio Mobile Quick Start",
   "description": "A simple Python server to distribute capability tokens and route calls for your mobile app",
-  "repository": "https://github.com/twilio/twilio-client-server",
+  "repository": "https://github.com/vassjozsef/mobile-quickstart",
   "logo": "https://static1.twilio.com/packages/company/img/logos_icon_round.png",
   "keywords": [
     "twilio",
