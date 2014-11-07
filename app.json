@@ -10,15 +10,15 @@
   ],
   "env": {
     "ACCOUNT_SID": {
-      "description": "Your Twilio account id",
+      "description": "Your Twilio Account Sid",
       "required": true
     },
     "AUTH_TOKEN": {
-      "description": "Your Twilio authentication token",
+      "description": "Your Twilio Auth Token",
       "required": true
     },
     "APP_SID": {
-      "description": "Your Twilio application sid that points to this server",
+      "description": "Your TwiML App Sid that points to this web server",
       "required": true
     },
     "CALLER_ID": {

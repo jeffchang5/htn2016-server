@@ -38,7 +38,7 @@ def call():
   """ Rules: 1. From can be either client:name or PSTN number  """
   """        2. To value specifies target. When call is coming """
   """           from PSTN, To value is ignored and call is     """
-  """           routed to client                               """
+  """           routed to client named CLIENT                  """
   resp = twilio.twiml.Response()
   from_value = request.values.get('From')
   to = request.values.get('To')
