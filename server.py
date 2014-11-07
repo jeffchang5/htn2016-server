@@ -7,6 +7,7 @@ ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 AUTH_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 APP_SID = 'APabe7650f654fc34655fc81ae71caa3ff'
 CALLER_ID = '+12345678901'
+
 CLIENT = 'jenny'
 
 app = Flask(__name__)
@@ -54,6 +55,12 @@ def call():
   else:
     # client -> PSTN
     resp.dial(to, callerId=caller_id)
+  return str(resp)
+
+@app.route('/', methods=['GET', 'POST'])
+def welcome():
+  resp = twilio.twiml.Response()
+  resp.say("Welcome to Twilio")
   return str(resp)
 
 if __name__ == "__main__":
