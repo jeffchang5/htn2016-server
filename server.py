@@ -3,11 +3,14 @@ from flask import Flask, request
 from twilio.util import TwilioCapability
 import twilio.twiml
 
+# Account Sid and Auth Token can be found in your account dashboard
 ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 AUTH_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
-APP_SID = 'APabe7650f654fc34655fc81ae71caa3ff'
-CALLER_ID = '+12345678901'
 
+# TwiML app outgoing connections will use
+APP_SID = 'APabe7650f654fc34655fc81ae71caa3ff'
+
+CALLER_ID = '+12345678901'
 CLIENT = 'jenny'
 
 app = Flask(__name__)
@@ -20,7 +23,7 @@ def token():
 
   capability = TwilioCapability(account_sid, auth_token)
 
-  # This allows outgoing connections to application
+  # This allows outgoing connections to TwiML application
   if request.values.get('allowOutgoing') != 'false':
      capability.allow_client_outgoing(app_sid)
 
