@@ -1,5 +1,5 @@
 {
-  "name": "Twilio Mobile Quick Start",
+  "name": "Twilio Mobile Quickstart",
   "description": "A simple Python server to distribute capability tokens and route calls for your mobile app",
   "repository": "https://github.com/vassjozsef/mobile-quickstart",
   "logo": "https://static1.twilio.com/packages/company/img/logos_icon_round.png",

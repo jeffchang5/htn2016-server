@@ -1,9 +1,9 @@
-Mobile QuickStart
+Mobile Quickstart
 ===
 
 This repository is located at [https://github.com/twilio/mobile-quickstart](https://github.com/twilio/mobile-quickstart).
 
-This repository includes server-side web application required for Twilio mobile sample apps such as QuickStart and BasicPhone. The Python script is responsible for generating capability tokens and serving TwiML.
+This repository includes server-side web application required for Twilio mobile sample apps such as Quickstart and BasicPhone. The Python script is responsible for generating capability tokens and serving TwiML.
 
 Prerequisites
 ---
@@ -40,7 +40,7 @@ Please open http://companyfoo.com/token in your browser. You should see a long s
 Client Configuration
 ---
 
-Please modify BasicPhone and QuickStart to point to your web applications's public URL.
+Please modify BasicPhone and Quickstart to point to your web applications's public URL.
 
 
 Usage
