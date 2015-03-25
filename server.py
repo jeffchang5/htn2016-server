@@ -46,7 +46,8 @@ def call():
   from_value = request.values.get('From')
   to = request.values.get('To')
   if not (from_value and to):
-    return str(resp.say("Invalid request"))
+    resp.say("Invalid request")
+    return str(resp)
   from_client = from_value.startswith('client')
   caller_id = os.environ.get("CALLER_ID", CALLER_ID)
   if not from_client:
