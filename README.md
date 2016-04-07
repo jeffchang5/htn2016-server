@@ -29,7 +29,7 @@ If you prefer to run your application locally, please make sure that you have Py
 
 Please replace `ACCOUNT_SID`, `AUTH_TOKEN`, `APP_SID` and `CALLER_ID` in `server.py` with values from your Twilio account.  Simply run the application by `python server.py`.  You can tunnel `localhost` to the public Internet using `ngrok`: 
 
-    ngrok 5000
+    ngrok http 5000
 
 Testing
 ---
