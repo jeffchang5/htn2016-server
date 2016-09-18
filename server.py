@@ -21,9 +21,6 @@ app = Flask(__name__)
 def text(number):
   content = request.get_data()
   content = json.loads(content)
-  #message = client.messages.create(to=number, from_="+12267740479",
-  #                                body="Hello there!")
-  content['phoneNumber'] = "2487872169"
   phone = phonenumbers.parse(content['phoneNumber'], "US")
   phone = phonenumbers.format_number(phone, phonenumbers.PhoneNumberFormat.INTERNATIONAL).encode('ascii','ignore')
 
@@ -42,7 +39,7 @@ def text(number):
   file = content['givenName'] + content['familyName'] + '.vcf'
   connection.upload(file, vCard)
   client.messages.create(
-          to = "2487872169",
+          to = number,
         from_ = "+12267740479",
         body = content['givenName'] + '\'s contact information!',
                               media_url = "http://twilio-contacts.s3.amazonaws.com/" + file,
