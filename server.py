@@ -29,9 +29,8 @@ def text(number):
               "VERSION:3.0\n")
   vCard.write('N:' +
               content['familyName'] + ';' +
-              content['givenName'] + '\n' + ';;;'
-            )
-  vCard.write("TEL;TYPE=CELL:" + phone + '\n')
+              content['givenName'] + '\n' +
+            "TEL;TYPE=CELL:" + phone + '\n')
   vCard.write('END:VCARD')
   vCard.seek(0, os.SEEK_END)
   print(vCard.tell())
