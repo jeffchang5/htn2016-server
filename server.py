@@ -21,26 +21,33 @@ app = Flask(__name__)
 def text(number):
   content = request.get_data()
   content = json.loads(content)
-  message = client.messages.create(to=number, from_="+12267740479",
-                                  body="Hello there!")
+  #message = client.messages.create(to=number, from_="+12267740479",
+  #                                body="Hello there!")
   content['phoneNumber'] = "2487872169"
   phone = phonenumbers.parse(content['phoneNumber'], "US")
   phone = phonenumbers.format_number(phone, phonenumbers.PhoneNumberFormat.INTERNATIONAL).encode('ascii','ignore')
 
   vCard= cStringIO.StringIO()
   vCard.write("BEGIN:VCARD\n" +
-              "VERSION:4.0\n")
+              "VERSION:3.0\n")
   vCard.write('N:' +
               content['familyName'] + ';' +
-              content['givenName'] + '\n'
+              content['givenName'] + '\n' + ';;;'
             )
-  vCard.write("TEL;TYPE=home,voice;mobile=uri:" + phone + '\n')
+  vCard.write("TEL;TYPE=CELL:" + phone + '\n')
   vCard.write('END:VCARD')
   vCard.seek(0, os.SEEK_END)
   print(vCard.tell())
   connection = tinys3.Connection("AKIAJX63QUBTZGQ2A7IA", "bj8giuj4AWoxUMi0qGE4hII/8JF8MyJ1TvSm0GvV", default_bucket="twilio-contacts")
   file = content['givenName'] + content['familyName'] + '.vcf'
   connection.upload(file, vCard)
+  client.messages.create(
+          to = "2487872169",
+        from_ = "+12267740479",
+        body = content['givenName'] + '\'s contact information!',
+                              media_url = "http://twilio-contacts.s3.amazonaws.com/" + file,
+  )
+
   return("Success!")
 
 
