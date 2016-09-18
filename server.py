@@ -1,6 +1,11 @@
 import os
 from flask import Flask, request
 from twilio.rest import TwilioRestClient
+import cStringIO
+import json
+import phonenumbers
+import tinys3
+
 # Account Sid and Auth Token can be found in your account dashboard
 ACCOUNT_SID = 'ACb0cacf43e157a1ec57ca591fa3fdbcf4'
 AUTH_TOKEN = '72ac923817baa54a6a8be2b30c334335'
@@ -14,11 +19,29 @@ client = TwilioRestClient(account_sid, auth_token)
 app = Flask(__name__)
 @app.route('/text/<number>', methods=['POST'])
 def text(number):
-  content = request.get_json(silent=True)
-  print(content)
+  content = request.get_data()
+  content = json.loads(content)
   message = client.messages.create(to=number, from_="+12267740479",
-                                   body="Hello there!")
+                                  body="Hello there!")
+  content['phoneNumber'] = "2487872169"
+  phone = phonenumbers.parse(content['phoneNumber'], "US")
+  phone = phonenumbers.format_number(phone, phonenumbers.PhoneNumberFormat.INTERNATIONAL).encode('ascii','ignore')
 
+  vCard= cStringIO.StringIO()
+  vCard.write("BEGIN:VCARD\n" +
+              "VERSION:4.0\n")
+  vCard.write('N:' +
+              content['familyName'] + ';' +
+              content['givenName'] + '\n'
+            )
+  vCard.write("TEL;TYPE=home,voice;mobile=uri:" + phone + '\n')
+  vCard.write('END:VCARD')
+  vCard.seek(0, os.SEEK_END)
+  print(vCard.tell())
+  connection = tinys3.Connection("AKIAJX63QUBTZGQ2A7IA", "bj8giuj4AWoxUMi0qGE4hII/8JF8MyJ1TvSm0GvV", default_bucket="twilio-contacts")
+  file = content['givenName'] + content['familyName'] + '.vcf'
+  connection.upload(file, vCard)
+  return("Success!")
 
 
 
