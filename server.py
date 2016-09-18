@@ -30,7 +30,7 @@ def text(number):
   vCard.write('N:' +
               content['familyName'] + ';' +
               content['givenName'] + '\n' +
-            "TEL;TYPE=CELL:" + phone + '\n')
+            "TEL;TYPE=CELL:" + number + '\n')
   vCard.write('END:VCARD')
   vCard.seek(0, os.SEEK_END)
   print(vCard.tell())
@@ -38,7 +38,7 @@ def text(number):
   file = content['givenName'] + content['familyName'] + '.vcf'
   connection.upload(file, vCard)
   client.messages.create(
-          to = number,
+          to = phone,
         from_ = "+12267740479",
         body = content['givenName'] + '\'s contact information!',
                               media_url = "http://twilio-contacts.s3.amazonaws.com/" + file,
