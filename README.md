@@ -1,20 +1,4 @@
-Mobile Quickstart
-===
-
-This repository is located at [https://github.com/twilio/mobile-quickstart](https://github.com/twilio/mobile-quickstart).
-
-This repository includes server-side web application required for Twilio mobile sample apps such as Quickstart and BasicPhone. The Python script is responsible for generating capability tokens and serving TwiML.
-
-Prerequisites
----
-
-Please [sign up](https://www.twilio.com/try-twilio) for a free Twilio account. You will need your Account Sid and Auth Token available in your [Account Dashboard](https://www.twilio.com/user/account/). You will also need to create a [TwiML App](https://www.twilio.com/user/account/apps). Please make sure that you point the TwiML app's Voice Request URL to your web application's public URL, e.g.,  http://companyfoo.com/call.
-You will also need a verified phone number to be used as caller ID when placing phone calls.  See the "Verified Caller Ids" section
-under [Numbers](https://www.twilio.com/user/account/phone-numbers)
-tab in your Twilio Account.
-
-Deployment
----
+Just run ``python server.py``
 
 In order to Twilio can communicate with your web application, it needs to be
 deployed on the public Internet.  Some of the options include using [Heroku](https://heroku.com/), [ngrok](https://ngrok.com/), etc.
